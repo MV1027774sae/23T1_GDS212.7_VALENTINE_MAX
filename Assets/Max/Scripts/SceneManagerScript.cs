@@ -5,20 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
 {
+    [SerializeField] private float timeUntilStart = 5f;
     [SerializeField] private float countdown = 20f;
     [SerializeField] private int scene;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip narrationClip;
     [SerializeField] private Animator anim;
 
+    private void Start()
+    {
+        StartCoroutine(BeginTimer());
+    }
+
+    IEnumerator BeginTimer()
+    {
+        yield return new WaitForSeconds(timeUntilStart);
+        StartNarration();
+
+        yield return new WaitForSeconds(countdown);
+        LoadNextScene();
+    }
+
     public void StartNarration()
     {
         audioSource.PlayOneShot(narrationClip);
-    }
-
-    public void SceneTimer()
-    {
-        BeginTimer();
     }
 
     public void LoadNextScene()
@@ -26,17 +36,11 @@ public class SceneManagerScript : MonoBehaviour
         StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    IEnumerator BeginTimer()
-    {
-        yield return new WaitForSeconds(countdown);
-    }
-
     IEnumerator LoadScene(int levelIndex)
     {
         anim.SetTrigger("Start");
+        
         yield return new WaitForSeconds(1);
-
         SceneManager.LoadScene(levelIndex);
-
     }
 }

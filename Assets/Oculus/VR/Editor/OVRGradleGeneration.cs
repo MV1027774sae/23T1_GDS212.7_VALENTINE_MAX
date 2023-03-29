@@ -117,12 +117,12 @@ public class OVRGradleGeneration
 
 		// OpenXR Plugin will remove all native plugins if they are not under the Feature folder. Include OVRPlugin to the build if MetaXRFeature is enabled.
 		var metaXRFeature = FeatureHelpers.GetFeatureWithIdForBuildTarget(report.summary.platformGroup, Meta.XR.MetaXRFeature.featureId);
-		if (metaXRFeature.enabled && !useOpenXR)
-		{
-			throw new BuildFailedException("OpenXR backend for Oculus Plugin is disabled, which is required to support Unity OpenXR Plugin. Please enable OpenXR backend for Oculus Plugin through the 'Oculus -> Tools -> OpenXR' menu.");
-		}
+        if (metaXRFeature.enabled && !useOpenXR)
+        {
+            throw new BuildFailedException("OpenXR backend for Oculus Plugin is disabled, which is required to support Unity OpenXR Plugin. Please enable OpenXR backend for Oculus Plugin through the 'Oculus -> Tools -> OpenXR' menu.");
+        }
 
-		string ovrRootPath = OVRPluginInfo.GetUtilitiesRootPath();
+        string ovrRootPath = OVRPluginInfo.GetUtilitiesRootPath();
 		var importers = PluginImporter.GetAllImporters();
 		foreach (var importer in importers)
 		{

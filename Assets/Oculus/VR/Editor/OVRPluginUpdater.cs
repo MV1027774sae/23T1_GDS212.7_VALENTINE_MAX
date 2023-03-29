@@ -765,13 +765,13 @@ public class OVRPluginUpdater : IOVRPluginInfoSupplier
 			}
 		}
 
-		if (enabledUtilsPluginPkg == null)
-		{
-			UnityEngine.Debug.LogError("Unable to Activate OVRPlugin with OpenXR: Oculus Utilities Plugin package not activated");
-			return;
-		}
+        if (enabledUtilsPluginPkg == null)
+        {
+            UnityEngine.Debug.LogError("Unable to Activate OVRPlugin with OpenXR: Oculus Utilities Plugin package not activated");
+            return;
+        }
 
-		if (!enabledUtilsPluginPkg.IsAndroidOpenXRPresent() && !enabledUtilsPluginPkg.IsWin64OpenXRPresent())
+        if (!enabledUtilsPluginPkg.IsAndroidOpenXRPresent() && !enabledUtilsPluginPkg.IsWin64OpenXRPresent())
 		{
 			UnityEngine.Debug.LogError("Unable to Activate OVRPlugin with OpenXR: Both AndroidOpenXR/OVRPlugin.aar or Win64OpenXR/OVRPlugin.dll does not exist");
 			return;
