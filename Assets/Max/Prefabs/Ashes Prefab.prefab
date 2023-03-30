@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1928000937669927151}
   - component: {fileID: 6166697751190031894}
   - component: {fileID: 4120255559683983314}
+  - component: {fileID: 283587410316079744}
   m_Layer: 0
   m_Name: Ashes Prefab
   m_TagString: Untagged
@@ -71,6 +72,20 @@ MonoBehaviour:
   _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 0}
   _maxGrabPoints: -1
+--- !u!136 &283587410316079744
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928000937669927150}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.15
+  m_Height: 0.625
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.30000007, z: 0}
 --- !u!1 &1928000937991673399
 GameObject:
   m_ObjectHideFlags: 0
